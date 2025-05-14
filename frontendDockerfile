@@ -1,0 +1,10 @@
+FROM node:18
+
+WORKDIR /app
+COPY . /app
+
+RUN npm install
+RUN npm install react react-dom react-router-dom axios
+RUN npm run build || true
+
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
